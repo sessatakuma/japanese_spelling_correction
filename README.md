@@ -2,6 +2,14 @@
 
 JGEC is described in the paper [GECToR -Grammatical Error Correction: Tag, Not Rewrite](https://arxiv.org/abs/2005.12592), but it is implemented for Japanese. This project's code is based on the official implementation [gector](https://github.com/grammarly/gector).
 
+## Environment
+Create a virtual environment with conda:
+```bash
+conda create -n jgec python=3.8 -y
+conda activate jgec
+pip install -r requirements.txt
+```
+
 ## Model Architecture
 
 The model consists of a [bert-base-japanese](https://huggingface.co/tohoku-nlp/bert-base-japanese-v2) and two linear classification heads, one for `labels` and one for `detect`. 
@@ -36,9 +44,6 @@ The **JaWiki**, **Lang8**, **BSD**, **PheMT**, **jpn-eng**, and **jp_address** a
 
 ## Training
 Install the requirements:
-```
-pip install -r requirements.txt
-```
 
 The model was trained in Colab with GPUs on each corpus with the following hyperparameters (default is used if unspecified):
 ```

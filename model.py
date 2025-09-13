@@ -12,8 +12,8 @@ from utils.helpers import Vocab
 class GEC:
     def __init__(self, max_len=128, confidence=0.0, min_error_prob=0.0,
                  learning_rate=1e-5,
-                 vocab_path='data/output_vocab/',
-                 verb_adj_forms_path='data/transform.txt',
+                 vocab_path='utils/data/output_vocab/',
+                 verb_adj_forms_path='utils/data/transform.txt',
                  bert_model='tohoku-nlp/bert-base-japanese-v2',
                  pretrained_weights_path=None,
                  bert_trainable=True):
@@ -22,8 +22,8 @@ class GEC:
         self.confidence = confidence
         self.min_error_prob = min_error_prob
         self.tokenizer = AutoTokenizer.from_pretrained(bert_model)
-        vocab_labels_path = os.path.join('utils', vocab_path, 'labels.txt')
-        vocab_detect_path = os.path.join('utils', vocab_path, 'detect.txt')
+        vocab_labels_path = os.path.join(vocab_path, 'labels.txt')
+        vocab_detect_path = os.path.join(vocab_path, 'detect.txt')
         self.vocab_labels = Vocab.from_file(vocab_labels_path)
         self.vocab_detect = Vocab.from_file(vocab_detect_path)
         self.model = self.get_model(bert_model, bert_trainable, learning_rate)

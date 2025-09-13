@@ -24,8 +24,9 @@ from model import GEC
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
 # called `app` in `main.py`.
 app = Flask(__name__)
-gec = GEC(pretrained_weights_path='data/model/model_checkpoint')
+gec = GEC(pretrained_weights_path='utils/data/model/model_checkpoint')
 
+print("GEC model loaded.")
 
 @app.route('/', methods=['GET'])
 def index():
