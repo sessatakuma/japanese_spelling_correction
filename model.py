@@ -14,7 +14,7 @@ class GEC:
                  learning_rate=1e-5,
                  vocab_path='data/output_vocab/',
                  verb_adj_forms_path='data/transform.txt',
-                 bert_model='cl-tohoku/bert-base-japanese-v2',
+                 bert_model='tohoku-nlp/bert-base-japanese-v2',
                  pretrained_weights_path=None,
                  bert_trainable=True):
         print("bert trainable:", bert_trainable)
@@ -22,8 +22,8 @@ class GEC:
         self.confidence = confidence
         self.min_error_prob = min_error_prob
         self.tokenizer = AutoTokenizer.from_pretrained(bert_model)
-        vocab_labels_path = os.path.join(vocab_path, 'labels.txt')
-        vocab_detect_path = os.path.join(vocab_path, 'detect.txt')
+        vocab_labels_path = os.path.join('utils', vocab_path, 'labels.txt')
+        vocab_detect_path = os.path.join('utils', vocab_path, 'detect.txt')
         self.vocab_labels = Vocab.from_file(vocab_labels_path)
         self.vocab_detect = Vocab.from_file(vocab_detect_path)
         self.model = self.get_model(bert_model, bert_trainable, learning_rate)

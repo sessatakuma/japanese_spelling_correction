@@ -20,7 +20,7 @@ class EditTagger:
                  vocab_detect_path='./utils/data/output_vocab/detect.txt',
                  vocab_labels_path='./utils/data/output_vocab/labels.txt'):
         self.tokenizer = AutoTokenizer.from_pretrained(
-            'cl-tohoku/bert-base-japanese-v2')
+            'tohoku-nlp/bert-base-japanese-v2')
         encode, decode = self.get_verb_adj_form_dicts(verb_adj_forms_path)
         self.encode_verb_adj_form = encode
         self.decode_verb_adj_form = decode

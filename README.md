@@ -4,7 +4,7 @@ JGEC is described in the paper [GECToR -Grammatical Error Correction: Tag, Not R
 
 ## Model Architecture
 
-The model consists of a [bert-base-japanese](https://huggingface.co/cl-tohoku/bert-base-japanese-v2) and two linear classification heads, one for `labels` and one for `detect`. 
+The model consists of a [bert-base-japanese](https://huggingface.co/tohoku-nlp/bert-base-japanese-v2) and two linear classification heads, one for `labels` and one for `detect`. 
 
 `labels` predicts a specific edit transformation (`$KEEP`, `$DELETE`, `$APPEND_x`, etc), and `detect` predicts whether the token is `CORRECT` or `INCORRECT`. The results from the two are used to make a prediction. The predicted transformations are then applied to the errorful input sentence to obtain a corrected sentence.
 
@@ -21,7 +21,7 @@ Furthermore, in some cases, one pass of predicted transformations is not suffici
   - 19,841,767 training sentences
 - [NAIST Lang8 Learner Corpora](https://sites.google.com/site/naistlang8corpora/)
   - 6,066,306 training sentences (generated from 3,084,0376 original sentences)
-- [PheMT](https://github.com/cl-tohoku/PheMT), extracted from this [paper](https://arxiv.org/pdf/2011.02121.pdf)
+- [PheMT](https://github.com/tohoku-nlp/PheMT), extracted from this [paper](https://arxiv.org/pdf/2011.02121.pdf)
   - 1,409 training sentences
 - [BSD](https://github.com/tsuruoka-lab/BSD), extracted from this [paper](https://arxiv.org/pdf/2008.01940.pdf)
   - 47,814 training sentences
